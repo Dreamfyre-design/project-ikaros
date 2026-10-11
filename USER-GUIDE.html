@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ikaros · Getting started</title>
+<style>
+:root{color-scheme:light;--ink:#172437;--muted:#526277;--line:#dce5ee;--teal:#08746c;--wash:#edf7f5}
+*{box-sizing:border-box}body{margin:0;background:#f5f8fc;color:var(--ink);font:17px/1.65 "Segoe UI",Arial,sans-serif}
+.page{max-width:1060px;padding:38px 28px 64px;margin:auto}header{margin-bottom:30px}
+.eyebrow{color:var(--teal);letter-spacing:.14em;text-transform:uppercase;font-size:13px;font-weight:700}
+h1{font-size:clamp(35px,5vw,53px);line-height:1.15;margin:12px 0 18px;letter-spacing:-.025em}
+h2{font-size:25px;line-height:1.3;margin:0 0 17px}h3{font-size:19px;line-height:1.4;margin:0 0 8px}p{margin:0 0 15px}
+.intro{max-width:760px;color:var(--muted);font-size:19px}nav{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+nav a{text-decoration:none;color:var(--teal);background:white;padding:8px 15px;border:1px solid var(--line);border-radius:999px;font-size:15px}
+a{color:var(--teal);text-underline-offset:3px}section{background:white;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.steps{counter-reset:step;list-style:none;padding:0;margin:0}.steps li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;gap:15px;padding:17px 0;border-top:1px solid var(--line)}
+.steps li:first-child{padding-top:0;border-top:0}.steps li::before{content:counter(step);width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--wash);color:var(--teal);font-weight:700}
+.steps p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:12px;padding:19px}
+.card p{font-size:15px;color:var(--muted);margin:0}.note{padding:17px 20px;border-radius:12px;background:var(--wash);margin:20px 0 0;color:#27544f}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:16px}th,td{text-align:left;vertical-align:top;padding:13px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:14px}td:first-child{width:34%;font-weight:600}
+code,kbd{font-family:Consolas,"Courier New",monospace;font-size:.9em;border:1px solid var(--line);background:#f5f8fb;border-radius:5px;padding:2px 5px}
+ul{padding-left:22px;margin:8px 0 18px}li{margin:7px 0}details{border-top:1px solid var(--line);padding-top:17px;margin-top:17px}
+summary{cursor:pointer;color:var(--teal);font-weight:600}details p{margin-top:15px}.quiet{color:var(--muted);font-size:15px}footer{color:var(--muted);font-size:14px;padding:5px 4px}
+@media(max-width:720px){.page{padding:26px 16px}section{padding:22px 18px}.grid{grid-template-columns:1fr}th,td{padding:10px 6px}td:first-child{width:39%}}
+@media print{body{background:white;font-size:12pt}.page{max-width:none;padding:0}nav{display:none}section{border:0;padding:12px 0;break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="page">
+<header>
+<div class="eyebrow">Project Ikaros · Windows edition</div>
+<h1>Choose a scenario.<br>Watch the motion.</h1>
+<p class="intro">Calculate gravity-driven motion, explore the saved positions in 3D, and keep a CSV record of your results. Use the examples immediately or load your own body list.</p>
+<nav aria-label="Guide sections"><a href="#start">Start a run</a><a href="#settings">Run settings</a><a href="#viewer">3D viewer</a><a href="#results">Results</a><a href="#custom">Your own scenario</a></nav>
+</header>
+
+<section id="start">
+<h2>Your first run</h2>
+<ol class="steps">
+<li><div><h3>Open the application</h3><p>Double-click <strong>Run Ikaros.cmd</strong> in this folder. Keep the complete folder together; the app needs the files inside <code>bin</code> and <code>scenarios</code>.</p></div></li>
+<li><div><h3>Pick an example</h3><p>Choose a card on the left. The <strong>Circular orbit demo</strong> is a good first run. Use <strong>Browse scenario...</strong> to open a different scenario file.</p></div></li>
+<li><div><h3>Choose the run settings</h3><p>Use the three fields to set the duration, integration step, and time between saved samples. The example's defaults are already filled in.</p></div></li>
+<li><div><h3>Run the calculation</h3><p>Click <strong>Run simulation</strong>. Watch the progress display; <strong>Cancel</strong> stops the calculation if you want to change your settings.</p></div></li>
+<li><div><h3>Explore and keep the results</h3><p>After completion, click <strong>Open 3D viewer</strong>. Click <strong>Open results folder</strong> to find the files saved automatically for that run.</p></div></li>
+</ol>
+</section>
+
+<section>
+<h2>Three starting points</h2>
+<div class="grid">
+<article class="card"><h3>Pioneer 11 at Saturn</h3><p>The original ten-body encounter: the Sun, Saturn, seven moons, and Pioneer 11. Defaults cover 37 days, so allow more calculation time than for the demos.</p></article>
+<article class="card"><h3>Circular orbit demo</h3><p>A small illustrative orbit for learning the viewer controls and comparing integration steps.</p></article>
+<article class="card"><h3>Many-body demo</h3><p>A central body and twelve massless test particles. They feel the central body's gravity while exerting no gravity themselves.</p></article>
+</div>
+</section>
+
+<section id="settings">
+<h2>What the three fields mean</h2>
+<table><thead><tr><th>Field</th><th>What it controls</th></tr></thead><tbody>
+<tr><td>Duration (days)</td><td>How much simulated time to calculate. One day is 86,400 seconds.</td></tr>
+<tr><td>Integration step (s)</td><td>How far the calculation advances in each step. A smaller value does more work and can reduce numerical error.</td></tr>
+<tr><td>Save every (s)</td><td>How often a position is saved for the viewer and CSV. Smaller values give more display samples and use more memory.</td></tr>
+</tbody></table>
+<p class="note">A one-second integration step and an hourly save interval are different settings. Ikaros calculates the steps between saved positions. It also saves the starting state and final state.</p>
+<p class="quiet" style="margin-top:16px">Steps are shortened when needed to reach a saved time exactly. Keep the save interval the same when comparing integration-step values.</p>
+</section>
+
+<section id="viewer">
+<h2>Read the 3D view</h2>
+<ul>
+<li><strong>Rotate:</strong> drag over the plotting area.</li>
+<li><strong>Zoom:</strong> scroll over the plotting area.</li>
+<li><strong>Move through time:</strong> use Play/Pause, Previous, Next, Restart, or drag the time slider.</li>
+<li><strong>Choose a body:</strong> use the body list to focus the camera or show and hide bodies.</li>
+<li><strong>Change the frame:</strong> use the on-screen controls or shortcuts to select a reference body or return to a fixed frame.</li>
+</ul>
+<p>Trails show only positions saved up to the displayed time. Moving backward removes later trail segments. Hidden bodies still affect the gravity calculation.</p>
+<p class="note">Markers are enlarged so you can see them; their sizes are not physical radii. Changing the camera does not change the calculation or the coordinate frame used in the CSV.</p>
+</section>
+
+<section id="results">
+<h2>Your run is saved automatically</h2>
+<p>Each completed run gets its own folder under <code>results</code>. The folder name includes a UTC timestamp and a suffix if needed to keep names unique.</p>
+<table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+<tr><td><code>trajectories.csv</code></td><td>Each body's elapsed time, name, mass, position, and velocity at every saved sample. Open it in a spreadsheet or analysis program.</td></tr>
+<tr><td><code>summary.txt</code></td><td>The run settings, calculation method, final states, and any available endpoint comparison.</td></tr>
+<tr><td><code>scenario-used.txt</code></td><td>The scenario and settings actually used, including changes made in the launcher.</td></tr>
+</tbody></table>
+<p>CSV values use kilograms, metres, metres per second, and seconds in the original input frame. An endpoint error is shown only when the reference describes the selected target at the same final time. Changing the duration to a different endpoint skips that comparison.</p>
+<p class="quiet">Both absolute and relative endpoint errors are errors: smaller is better. Relative error is unavailable if the target has travelled zero distance. Ignore a folder that still contains <code>INCOMPLETE.txt</code>; its export was interrupted or failed.</p>
+</section>
+
+<section id="custom">
+<h2>Use your own bodies</h2>
+<p>Click <strong>Edit scenario file</strong> to open the selected file in your text editor. Add or remove body rows, change settings, and save. Return to Ikaros and click <strong>Reload file</strong>. You can also browse to another <code>.txt</code> file.</p>
+<p>Body count comes from the rows in the scenario. You do not need to edit or rebuild C++ to change it. Give each body a unique name and use that name for camera focus, reference, and target settings.</p>
+<details><summary>Units, metadata, and file format</summary>
+<p>Each body row contains <code>name,mass_kg,x_m,y_m,z_m,vx_m_s,vy_m_s,vz_m_s</code>. Scientific notation is accepted. Zero mass creates a test particle. Quote names containing commas.</p>
+<p>All starting positions and velocities must share a coordinate origin, axes, starting instant, and time scale. Changing an epoch or frame label does not transform coordinates. The supplied Pioneer vectors reproduce matching Horizons queries using the Solar System barycenter, the J2000 ecliptic plane, geometric states, and midnight TDB epochs. See <a href="docs/DATA-SOURCES.md">the starting-data record</a> for saved queries and headers.</p>
+<p><a href="README.md">README.md</a> contains a complete scenario example, optional endpoint-reference fields, build instructions, and dependency details.</p>
+</details>
+<details><summary>What calculation is being preserved?</summary>
+<p>This version keeps the original point-mass force law, gravitational constant, and velocity-first update with position calculated from the average old/new velocity. The Pioneer starting states and masses are preserved.</p>
+<p>Velocity-Verlet and Saturn's J2 gravity term have not been added. The model also omits propulsion, radiation pressure, relativity, extended-body gravity, and impacts. Smaller steps cannot repair missing physics or mismatched starting data.</p>
+<p>Dreamfyre-design supplied the original calculator, numerical method, and Pioneer configuration. OpenAI Codex assisted with the generic core, parser, interface, viewer, tests, build setup, and documentation. The Pioneer vectors were obtained from NASA/JPL Horizons. See <a href="docs/ATTRIBUTION.md">the full credits</a> and <a href="docs/SCIENTIFIC-LIMITATIONS.md">scientific limitations</a>.</p>
+</details>
+</section>
+<footer>This guide works offline. Project code is distributed under the <a href="LICENSE">MIT license</a>, copyright 2026 Dreamfyre-design. Third-party components retain their own notices in the licenses folder.</footer>
+</main>
+</body>
+</html>

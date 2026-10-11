@@ -1,0 +1,35 @@
+# Generated application and build outputs
+/bin/
+/build/
+/build-*/
+/out/
+/.vs/
+*.exe
+*.dll
+*.obj
+*.o
+*.pdb
+*.idb
+*.ilk
+*.tlog/
+*.log
+*.vcxproj.user
+*.suo
+*.user
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+
+# Generated results and local preservation checks
+/results/
+/checks/
+
+# Editor and operating-system files
+*.swp
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
